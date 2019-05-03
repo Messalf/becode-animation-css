@@ -3,7 +3,7 @@
 ## Avancement : ##
 
 ####
-- [] Exercice 1
-- [] Exercice 2
-- [] Exercice 3
+- [x] Exercice 1
+- [ ] Exercice 2
+- [ ] Exercice 3
 
