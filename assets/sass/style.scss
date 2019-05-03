@@ -1,0 +1,50 @@
+$border:5px solid white;
+$text-align:center;
+$color:white;
+
+
+body {
+    background-color: black;
+    background-size: cover;
+}
+
+.grid {
+    display:grid;
+    grid-template-rows: 200px 200px 200px;
+    p{
+        border: $border;
+        color:$color;
+        padding: 20px;
+        text-align: $text-align;
+        margin: auto;
+    }
+}
+
+.button1 {
+    transition: color 1s ease-in, background-color 1s ease-in;
+    &:hover{
+        background-color: white;
+        color: black;
+    }
+}
+
+.button2 {
+    transition:color 1s  ease-in, background-color 1s ease-in, transform 1s ease-in;
+    transform: scale(1);
+    &:hover{
+    background-color: white;
+    color:black;
+    transform: scale(1.5);
+    }
+}
+
+
+.button3 {
+        transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in;
+        transform: translateX(0px);
+    &:hover{
+        background-color:white;
+        color:black;
+        transform: translateX(150px);
+    }
+}
