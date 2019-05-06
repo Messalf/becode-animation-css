@@ -4,6 +4,6 @@
 
 ####
 - [x] Exercice 1
-- [ ] Exercice 2
+- [x] Exercice 2
 - [ ] Exercice 3
 
