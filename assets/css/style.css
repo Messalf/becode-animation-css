@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: black;
   background-size: cover;
@@ -6,11 +7,22 @@ body {
 .grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 200px 200px 200px;
-      grid-template-rows: 200px 200px 200px;
+      grid-template-areas: "n m";
+  -ms-grid-columns: 1fr 90%;
+      grid-template-columns: 1fr 90%;
 }
 
-.grid p {
+.gridp {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: m;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 150px 150px 150px;
+      grid-template-rows: 150px 150px 150px;
+}
+
+.gridp a {
   border: 5px solid white;
   color: white;
   padding: 20px;
@@ -18,6 +30,7 @@ body {
   margin: auto;
 }
 
+/* Début des boutons animés */
 .button1 {
   -webkit-transition: color 1s ease-in, background-color 1s ease-in;
   -o-transition: color 1s ease-in, background-color 1s ease-in;
@@ -30,11 +43,11 @@ body {
 }
 
 .button2 {
-  -webkit-transition: color 1s  ease-in, background-color 1s ease-in, -webkit-transform 1s ease-in;
-  transition: color 1s  ease-in, background-color 1s ease-in, -webkit-transform 1s ease-in;
-  -o-transition: color 1s  ease-in, background-color 1s ease-in, transform 1s ease-in;
-  transition: color 1s  ease-in, background-color 1s ease-in, transform 1s ease-in;
-  transition: color 1s  ease-in, background-color 1s ease-in, transform 1s ease-in, -webkit-transform 1s ease-in;
+  -webkit-transition: color 1s ease-in, background-color 1s ease-in, -webkit-transform 1s ease-in;
+  transition: color 1s ease-in, background-color 1s ease-in, -webkit-transform 1s ease-in;
+  -o-transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in;
+  transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in;
+  transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in, -webkit-transform 1s ease-in;
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
@@ -66,3 +79,94 @@ body {
       -ms-transform: translateX(150px);
           transform: translateX(150px);
 }
+
+/* Fin des boutons */
+/* Début du menu */
+.barrenav {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: n;
+}
+
+.btn,
+.btn2,
+.btn3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #666666;
+  color: orange;
+  height: 75px;
+  width: 85px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.btn:hover,
+.btn2:hover,
+.btn3:hover {
+  background-color: white;
+  -webkit-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover > p,
+.btn2:hover > p,
+.btn3:hover > p {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 1;
+  border: solid grey 3px;
+  padding: 20px;
+}
+
+.btn p,
+.btn2 p,
+.btn3 p {
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in, -webkit-transform 1s ease-in;
+  transition: opacity 1s ease-in, -webkit-transform 1s ease-in;
+  -o-transition: transform 1s ease-in, opacity 1s ease-in;
+  transition: transform 1s ease-in, opacity 1s ease-in;
+  transition: transform 1s ease-in, opacity 1s ease-in, -webkit-transform 1s ease-in;
+}
+
+.btn:hover .submenu,
+.btn2:hover .submenu,
+.btn3:hover .submenu {
+  display: block;
+  height: 75px;
+  width: 150px;
+  background-color: #666666;
+  color: orange;
+  -webkit-transform: translateX(80%);
+      -ms-transform: translateX(80%);
+          transform: translateX(80%);
+  -webkit-transition: 1s ease-in;
+  -o-transition: 1s ease-in;
+  transition: 1s ease-in;
+}
+
+.btn p,
+.btn2 p,
+.btn3 p {
+  position: absolute;
+  pointer-events: none;
+}
+
+.submenu {
+  display: none;
+}
+
+.links {
+  color: orange;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/* Fin du menu */

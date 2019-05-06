@@ -1,6 +1,7 @@
 $border:5px solid white;
 $text-align:center;
 $color:white;
+$background-color:white;
 
 
 body {
@@ -9,42 +10,124 @@ body {
 }
 
 .grid {
-    display:grid;
-    grid-template-rows: 200px 200px 200px;
-    p{
+    display: grid;
+    grid-template-areas: "n m";
+    grid-template-columns: 1fr 90%;
+}
+
+.gridp {
+    grid-area: m;
+    display: grid;
+    grid-template-rows: 150px 150px 150px;
+
+    a {
         border: $border;
-        color:$color;
+        color: $color;
         padding: 20px;
         text-align: $text-align;
         margin: auto;
     }
 }
 
+/* Début des boutons animés */
+
 .button1 {
     transition: color 1s ease-in, background-color 1s ease-in;
-    &:hover{
+
+    &:hover {
         background-color: white;
         color: black;
     }
 }
 
 .button2 {
-    transition:color 1s  ease-in, background-color 1s ease-in, transform 1s ease-in;
+    transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in;
     transform: scale(1);
-    &:hover{
-    background-color: white;
-    color:black;
-    transform: scale(1.5);
+
+    &:hover {
+        background-color: white;
+        color: black;
+        transform: scale(1.5);
     }
 }
 
 
 .button3 {
-        transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in;
-        transform: translateX(0px);
-    &:hover{
-        background-color:white;
-        color:black;
+    transition: color 1s ease-in, background-color 1s ease-in, transform 1s ease-in;
+    transform: translateX(0px);
+
+    &:hover {
+        background-color: white;
+        color: black;
         transform: translateX(150px);
     }
 }
+
+/* Fin des boutons */
+
+/* Début du menu */
+
+@mixin padder($px) {
+    padding: $px;
+}
+
+.barrenav {
+    grid-area: n;
+}
+
+.btn,
+.btn2,
+.btn3 {
+    display: flex;
+    background-color: #666666;
+    color: orange;
+    height: 75px;
+    width: 85px;
+    align-items: center;
+    justify-content: space-around;
+
+    &:hover {
+        background-color: white;
+        transition: 1s ease-in-out;
+
+        >p {
+            transform: translateX(100%);
+            opacity: 1;
+            border: solid grey 3px;
+            @include padder(20px);
+        }
+    }
+
+    p {
+        opacity: 0;
+        transition: transform 1s ease-in, opacity 1s ease-in;
+    }
+
+    &:hover .submenu {
+        display: block;
+        height: 75px;
+        width: 150px;
+        background-color: #666666;
+        color: orange;
+        transform: translateX(80%);
+        transition: 1s ease-in;
+    }
+
+    p {
+        position: absolute;
+        pointer-events: none;
+    }
+}
+
+.submenu {
+    display: none;
+
+}
+
+.links {
+    color: orange;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/* Fin du menu */
