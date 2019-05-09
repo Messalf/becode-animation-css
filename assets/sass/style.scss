@@ -69,6 +69,7 @@ body {
 
 @mixin padder($px) {
     padding: $px;
+
 }
 
 .barrenav {
@@ -91,7 +92,7 @@ body {
         transition: 1s ease-in-out;
 
         >p {
-            transform: translateX(100%);
+            transform: translateX(100px);
             opacity: 1;
             border: solid grey 3px;
             @include padder(20px);
@@ -101,33 +102,134 @@ body {
     p {
         opacity: 0;
         transition: transform 1s ease-in, opacity 1s ease-in;
-    }
-
-    &:hover .submenu {
-        display: block;
-        height: 75px;
-        width: 150px;
-        background-color: #666666;
-        color: orange;
-        transform: translateX(80%);
-        transition: 1s ease-in;
-    }
-
-    p {
         position: absolute;
         pointer-events: none;
     }
-}
-
-.submenu {
-    display: none;
 
 }
 
 .links {
     color: orange;
-    list-style-type: none;
     text-decoration: none;
 }
 
+
 /* Fin du menu */
+
+/* Début animated card */
+
+main {
+    display: grid;
+    grid-area: m;
+    cursor: default;
+    position: relative;
+    width: 400px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-165%, -35%);
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: #FFF 5px 5px 5px 0.5;
+
+        .mgs {
+            transform: scale(1.5);
+            filter: opacity(0.4);
+        }
+
+        .corp {
+            transform: translateY(-150px);
+        }
+
+        .rectangle {
+            top: -40px;
+        }
+
+        .description {
+            opacity: 1; 
+        }
+        box-shadow: 3px 3px 10px rgb(255, 255, 255, .4);
+    }
+}
+
+.mgs {
+    width: 200%;
+    opacity: 1;
+    z-index: 1;
+    margin: 0px 0px 0px -75px;
+    transition: transform .5s ease-in-out;
+
+}
+
+header {
+    background-color: #EF5A31;
+    margin: -425px 0 0 300px;
+    width: 60px;
+    height: 60px;
+    font-weight: bold;
+    z-index: 3;
+    border-radius: 50%;
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.decoration {
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    transition: transform .5s;
+    width: 80px;
+    height: 50px;
+    background-color: #EF5A31;
+    text-transform: uppercase;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: -45px;
+}
+
+
+
+article {
+    color: white;
+}
+
+h1 {
+    position: absolute;
+    color: #EF5A31;
+    z-index: 3;
+}
+
+.corp {
+    background-color: #FFF;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    z-index: 2;
+    transition: transform .5s;
+}
+
+.description {
+    margin: 80px 0 0 0;
+    font-size: 20px;
+    line-height: 25px;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    transition: transform .5s;
+}
+
+footer {
+    color: black;
+    font-size: 15px;
+    z-index: 10;
+    position: relative;
+    top: -200px;
+    font-weight: 100;
+}
